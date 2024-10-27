@@ -1,0 +1,323 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(to bottom, #1a1a4d, #4d4d99);
+  font-family: "Arial", sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Elemen kabut */
+.fog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  filter: blur(10px);
+  z-index: 1;
+}
+
+/* Kontainer dengan z-index yang lebih tinggi */
+.container {
+  position: relative; /* Memastikan kontainer berada di atas */
+  text-align: center;
+  padding: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  max-width: 340px;
+  width: 90%;
+  opacity: 0;
+  animation: floatUp 0.8s forwards ease-in-out, floatingEffect 3s ease-in-out infinite;
+  z-index: 2; /* Z-index lebih tinggi agar terlihat di atas kabut */
+}
+
+/* Bintang dan bintang jatuh */
+.star {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #ffdf00;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  opacity: 0.8;
+  animation: twinkle 1.5s ease-in-out infinite;
+}
+
+/* Menambahkan lebih banyak bintang */
+.star1 {
+  top: 5%;
+  left: 5%;
+  animation-duration: 1.5s;
+}
+.star2 {
+  top: 10%;
+  left: 20%;
+  animation-duration: 1.7s;
+}
+.star3 {
+  top: 15%;
+  left: 15%;
+  animation-duration: 1.9s;
+}
+.star4 {
+  top: 25%;
+  left: 30%;
+  animation-duration: 2s;
+}
+.star5 {
+  top: 10%;
+  left: 50%;
+  animation-duration: 2.1s;
+}
+.star6 {
+  top: 20%;
+  left: 70%;
+  animation-duration: 2.2s;
+}
+.star7 {
+  top: 30%;
+  left: 80%;
+  animation-duration: 2.3s;
+}
+.star8 {
+  top: 35%;
+  left: 10%;
+  animation-duration: 2.4s;
+}
+.star9 {
+  top: 40%;
+  left: 25%;
+  animation-duration: 2.5s;
+}
+.star10 {
+  top: 45%;
+  left: 90%;
+  animation-duration: 2.6s;
+}
+.star11 {
+  top: 50%;
+  left: 35%;
+  animation-duration: 2.7s;
+}
+.star12 {
+  top: 55%;
+  left: 60%;
+  animation-duration: 2.8s;
+}
+.star13 {
+  top: 60%;
+  left: 5%;
+  animation-duration: 2.9s;
+}
+.star14 {
+  top: 70%;
+  left: 40%;
+  animation-duration: 3s;
+}
+.star15 {
+  top: 75%;
+  left: 80%;
+  animation-duration: 3.1s;
+}
+.star16 {
+  top: 80%;
+  left: 10%;
+  animation-duration: 3.2s;
+}
+.star17 {
+  top: 85%;
+  left: 25%;
+  animation-duration: 3.3s;
+}
+.star18 {
+  top: 90%;
+  left: 50%;
+  animation-duration: 3.4s;
+}
+.star19 {
+  top: 95%;
+  left: 70%;
+  animation-duration: 3.5s;
+}
+.star20 {
+  top: 10%;
+  left: 85%;
+  animation-duration: 3.6s;
+}
+.star21 {
+  top: 30%;
+  left: 45%;
+  animation-duration: 3.7s;
+}
+.star22 {
+  top: 40%;
+  left: 65%;
+  animation-duration: 3.8s;
+}
+
+/* Elemen bulan sabit */
+.moon {
+  position: absolute;
+  top: 10%;
+  left: 70%;
+  width: 80px; /* Ukuran bulan */
+  height: 80px;
+  background-color: #ffec40; /* Warna bulan sabit */
+  border-radius: 50%; /* Bentuk bulan */
+  box-shadow: 0 0 20px rgba(255, 236, 64, 0.7), 0 0 50px rgba(255, 236, 64, 0.5); /* Efek cahaya bulan */
+}
+
+/* Elemen untuk menutupi bulan */
+.moon-cover {
+  position: absolute;
+  top: 0; /* Menyesuaikan posisi untuk menutupi */
+  left: 20px; /* Menyesuaikan posisi untuk menutupi */
+  width: 80px; /* Ukuran sama dengan bulan */
+  height: 80px;
+  background-color: #1a1a4d; /* Warna latar belakang untuk menutupi */
+  border-radius: 50%; /* Bentuk bulat */
+}
+
+/* Animasi */
+@keyframes floatUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes floatingEffect {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  } /* Ukuran bintang membesar */
+}
+
+/* Efek kejutan untuk pesan */
+@keyframes surpriseEffect {
+  0% {
+    transform: scale(0); /* Mulai dari ukuran 0 */
+    opacity: 0; /* Mulai dari transparan */
+  }
+  50% {
+    transform: scale(1.1); /* Mencapai sedikit lebih besar */
+    opacity: 1; /* Menjadi terlihat */
+  }
+  100% {
+    transform: scale(1); /* Kembali ke ukuran normal */
+  }
+}
+
+/* Elemen gambar, judul, pesan, dan tombol */
+.image {
+  width: 220px; /* Ukuran gambar sesuai keinginan */
+  height: auto;
+  border-radius: 15px;
+  animation: fadeIn 1s ease 0.5s forwards;
+}
+
+h1 {
+  font-size: 24px;
+  color: #333;
+  margin: 10px 0;
+  animation: fadeIn 1s ease 1s forwards;
+}
+
+.message {
+  font-size: 16px;
+  color: #555;
+  animation: fadeIn 1s ease 1.5s forwards;
+}
+
+button {
+  background-color: #ffec40; /* Warna tombol */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  animation: fadeIn 1s ease 2s forwards;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #4d4d99; /* Warna tombol saat hover */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsif untuk tablet dan perangkat mobile */
+@media (max-width: 600px) {
+  body {
+    padding: 10px; /* Menambahkan padding di sekitar */
+  }
+
+  .container {
+    padding: 15px; /* Mengurangi padding di dalam kontainer */
+    max-width: 90%; /* Memastikan kontainer tidak terlalu lebar */
+  }
+
+  .image {
+    width: 100%; /* Gambar mengambil lebar penuh */
+    height: auto; /* Tinggi otomatis untuk menjaga proporsi */
+  }
+
+  h1 {
+    font-size: 20px; /* Mengurangi ukuran font untuk judul */
+  }
+
+  .message {
+    font-size: 14px; /* Mengurangi ukuran font untuk pesan */
+  }
+
+  button {
+    font-size: 14px; /* Mengurangi ukuran font untuk tombol */
+    padding: 8px 16px; /* Menyesuaikan padding tombol */
+  }
+}
+
+/* Responsif untuk tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .container {
+    padding: 25px;
+    max-width: 320px;
+  }
+
+  .image {
+    width: 80%;
+  }
+}
